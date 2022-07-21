@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Iterates through files in dir and parses them
+for file in *; do
+	echo "$file" | cut -d'-' -f2-
+done

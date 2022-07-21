@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Prints string 10 times via for loop
+for _ in $(seq 1 10); do
+	echo Holberton School
+done

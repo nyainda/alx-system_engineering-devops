@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Prints string 10 times except on 9th
+i=0
+while [ $((i++)) -lt 10 ]; do
+	echo Holberton School
+	if [ $i -eq 9 ]; then
+		echo Hi
+	fi
+done
+
