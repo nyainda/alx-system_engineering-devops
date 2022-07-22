@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Prints string via until
-i=0
-until [ $((i++)) -gt 9 ]; do
-	echo Holberton School
+# displays Best School 10 times.
+
+COUNTER=10
+until [ $COUNTER -lt 1 ]
+do
+	echo "Best School"
+	(( COUNTER-=1 ))
 done

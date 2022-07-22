@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# Displays bad luck 4, good luck 8, to teach Chinese culture.
-i=0
-while [ $((i++)) -lt 10 ]; do
-	if [ $i -eq 4 ]; then
-		echo bad luck
-	elif [ $i -eq 8 ]; then
-		echo good luck
-	else
-		echo Holberton School
-	fi
+# displays Best School 10 times.
+
+COUNTER=1
+while [ $COUNTER -lt 11 ]
+do
+    if [ $COUNTER = 4 ]
+    then
+        echo "bad luck"
+    elif [ $COUNTER = 8 ]
+    then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+    (( COUNTER+=1 ))
 done

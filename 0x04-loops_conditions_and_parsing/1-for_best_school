@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Prints string 10 times via for loop
-for _ in $(seq 1 10); do
-	echo Holberton School
+# displays Best School 10 times
+
+for (( c=1; c<=10; c++ ))
+do
+	echo "Best School"
 done

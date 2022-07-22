@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Prints string via while
-i=0
-while [ $((i++)) -lt 10 ]; do
-	echo Holberton School
+# displays Best School 10 times.
+
+COUNTER=0
+while [ $COUNTER -lt 10 ]
+do
+	echo "Best School"
+	(( COUNTER=COUNTER+1 ))
 done
