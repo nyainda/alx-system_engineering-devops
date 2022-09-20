@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-# Configure a new Nginx server so that /redirect_me is redirecting to another page
-#+ The redirection must be a “301 Moved Permanently”
+# Install nginx, set up to listen to port 80 and change default page served to
+# "Holberton School"
+# Configure Nginx server so that /redirect_me is redirecting to another page
 
 sudo apt-get -y update
-sudo apt-get -y upgrade
 sudo apt-get -y install nginx
-sudo service nginx start
-newlines="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "26i $newlines" /etc/nginx/sites-available/default
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+# configure redirection
+new_str="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUl\
+wu4 permanent;"
+sudo sed -i "42i $new_str" /etc/nginx/sites-available/default
 sudo service nginx restart
-sudo service nginx reload
