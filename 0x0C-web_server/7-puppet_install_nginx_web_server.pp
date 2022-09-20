@@ -1,20 +1,19 @@
-# Puppet manifest to install nginx
+#config server
+
 package { 'nginx':
-  ensure => installed,
+provider => 'apt',
+}
+exec {'hlbtn_page':
+command => 'echo "hello world" | sudo tee /usr/share/nginx/html/index.html',
+}
+exec {'redirect_page':
+
+command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://www.youtube.com/ permanent;" /etc/nginx/sites-available/default',
+}
+exec {'start_server':
+
+command => '/usr/bin/sudo /usr/sbin/service nginx start',
 }
 
-file_line { 'aaaaa':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-}
 
-file { '/var/www/html/index.html':
-  content => 'Holberton School',
-}
 
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
-}
