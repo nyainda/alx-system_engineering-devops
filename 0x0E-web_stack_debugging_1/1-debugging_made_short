@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script changes the configuration without killing child processes
+
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+pkill -1 -f "/usr/sbin/nginx"
